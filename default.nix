@@ -16,6 +16,7 @@ pkgs.buildGoApplication {
   src = ./.;
   modules = ./gomod2nix.toml;
   installPhase = ''
+    echo "Installing binary"
     install -D $src $out/bin/cortile
     chmod a+x $out/bin/cortile
   '';
