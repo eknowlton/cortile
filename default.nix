@@ -15,12 +15,8 @@ pkgs.buildGoApplication {
   pwd = ./.;
   src = ./.;
   modules = ./gomod2nix.toml;
-  phases = [ "installPhase" "shellHook" ];
-  shellHook = '' 
-    export PATH="${<nixpkgs>.cortile}/bin:$PATH"
-  '';
+  phases = [ "installPhase" ];
   installPhase = ''
-    echo "Installing binary"
     install -D $src $out/bin/cortile
     chmod a+x $out/bin/cortile
   '';
