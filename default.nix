@@ -15,9 +15,4 @@ pkgs.buildGoApplication {
   pwd = ./.;
   src = ./.;
   modules = ./gomod2nix.toml;
-  phases = [ "installPhase" ];
-  installPhase = ''
-    install -D $src $out/bin/cortile
-    chmod a+x $out/bin/cortile
-  '';
 }
